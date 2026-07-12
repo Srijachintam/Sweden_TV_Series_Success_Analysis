@@ -1,91 +1,131 @@
-# Sweden TV Series Success Analysis
-
-## Project Overview
-
-This project analyzes Swedish TV title data using a historical IMDb dataset. The goal is to understand what makes a Swedish TV title successful and what types of television shows a broadcaster should invest in for the future.
-
-The analysis was prepared using Python for data cleaning, exploration, and visualization. I used Pandas for data handling, NumPy for numerical calculations, and Matplotlib for creating charts.
-
-## Business Questions
-
-1. What makes a Swedish TV series successful?
-2. What types of television shows should the broadcaster invest in for the future?
-
-## Dataset
-
-The analysis focuses on Swedish TV title records where the country code is `SE`.
-
-Main tables used:
-
-- fact_Title
-- dim_Series
-- fact_TitleRatings
-- fact_SeriesRating
-- fact_TitleAward
-- fact_SeriesAward
-- dim_TitleGenre
-- dim_SeriesGenre
-
-## Tools Used
-
-- Python
-- pandas
-- numpy
-- matplotlib
-- Jupyter Notebook
-
-## Key Analysis Steps
-
-- Loaded and checked all dataset tables
-- Cleaned rating, vote, runtime, and year columns
-- Filtered Swedish title records
-- Checked missing values and data quality
-- Analyzed IMDb ratings and audience votes
-- Created a success flag using rating and votes
-- Analyzed release year trends
-- Analyzed runtime categories
-- Checked Sweden's age-rating distribution
-- Reviewed award winner and nomination data
-- Exported dashboard-ready data
-
-## Success Definition
-
-A Swedish TV title is considered successful when:
-
-- IMDb rating is 7.0 or higher
-- Number of votes is greater than or equal to the median vote count
-
-This rule helps avoid using only high ratings from titles with very few votes.
-
-## Final Business Insights
-
-- The title-level dataset contains 4,829 Swedish TV title records.
-- Around 64% of Swedish title records are missing IMDb rating and vote data, so rating-based conclusions were made only using available rating and vote records.
-- The average IMDb rating for Swedish TV titles is 6.91, and the median rating is 7.0.
-- Using the success rule, 527 Swedish TV titles were identified as successful.
-- Medium-length titles are the strongest runtime category, with the highest average IMDb rating.
-- The broadcaster should invest in medium-length Swedish TV shows with strong ratings and reliable audience vote counts.
-- Future decisions should use rating, votes, runtime, release trend, age rating, and award recognition together instead of IMDb rating alone.
-
-## Dashboard KPIs
-
-Recommended KPIs for future dashboard development:
-
-- Total Swedish TV titles
-- Average IMDb rating
-- Total audience votes
-- Number of successful titles
-- Top successful titles
-- Title count by release year
-- Rating distribution
-- Runtime category distribution
-- Average rating by runtime category
-- Sweden age-rating distribution
-- Award winners vs nominations
-- Missing values summary
-
-## Dataset Limitation
-
-The title-level analysis is directly Sweden-focused because the `fact_Title` table contains `Country Code = SE`.
-
-Some supporting tables lack direct keys to clearly connect them to Swedish titles or series. Because of this, the analysis separates the direct Sweden analysis from the supporting dataset analysis.
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "c7591e4f-3bb8-45d2-88f6-cb6d65bcb721",
+   "metadata": {},
+   "source": [
+    "# Sweden TV Series Success Analysis\n",
+    "\n",
+    "## Project Overview\n",
+    "\n",
+    "This project analyzes Swedish TV title data using a historical IMDb dataset. The goal is to understand what makes a Swedish TV title successful and what types of television shows a broadcaster should invest in for the future.\n",
+    "\n",
+    "The analysis was prepared using Python for data cleaning, exploration, and visualization. I used pandas for data handling, numpy for numerical calculations, and matplotlib for charts.\n",
+    "\n",
+    "## Business Questions\n",
+    "\n",
+    "1. What makes a Swedish TV series successful?\n",
+    "2. What types of television shows should the broadcaster invest in for the future?\n",
+    "\n",
+    "## Dataset\n",
+    "\n",
+    "The analysis focuses on Swedish TV title records where the country code is `SE`.\n",
+    "\n",
+    "Main tables used:\n",
+    "\n",
+    "- fact_Title\n",
+    "- dim_Series\n",
+    "- fact_TitleRatings\n",
+    "- fact_SeriesRating\n",
+    "- fact_TitleAward\n",
+    "- fact_SeriesAward\n",
+    "- dim_TitleGenre\n",
+    "- dim_SeriesGenre\n",
+    "\n",
+    "## Tools Used\n",
+    "\n",
+    "- Python\n",
+    "- pandas\n",
+    "- numpy\n",
+    "- matplotlib\n",
+    "- Jupyter Notebook\n",
+    "\n",
+    "## Key Analysis Steps\n",
+    "\n",
+    "- Loaded and checked all dataset tables\n",
+    "- Cleaned rating, vote, runtime, and year columns\n",
+    "- Filtered Swedish title records\n",
+    "- Checked missing values and data quality\n",
+    "- Analyzed IMDb ratings and audience votes\n",
+    "- Created a success flag using rating and votes\n",
+    "- Analyzed release year trends\n",
+    "- Analyzed runtime categories\n",
+    "- Checked Sweden age-rating distribution\n",
+    "- Reviewed award winner and nomination data\n",
+    "- Exported dashboard-ready data\n",
+    "\n",
+    "## Success Definition\n",
+    "\n",
+    "A Swedish TV title is considered successful when:\n",
+    "\n",
+    "- IMDb rating is 7.0 or higher\n",
+    "- Number of votes is greater than or equal to the median vote count\n",
+    "\n",
+    "This rule helps avoid using only high ratings from titles with very few votes.\n",
+    "\n",
+    "## Final Business Insights\n",
+    "\n",
+    "- The title-level dataset contains 4,829 Swedish TV title records.\n",
+    "- Around 64% of Swedish title records are missing IMDb rating and vote data, so rating-based conclusions were made only using available rating and vote records.\n",
+    "- The average IMDb rating for Swedish TV titles is 6.91, and the median rating is 7.0.\n",
+    "- Using the success rule, 527 Swedish TV titles were identified as successful.\n",
+    "- Medium-length titles are the strongest runtime category, with the highest average IMDb rating.\n",
+    "- The broadcaster should invest in medium-length Swedish TV shows with strong ratings and reliable audience vote counts.\n",
+    "- Future decisions should use rating, votes, runtime, release trend, age rating, and award recognition together instead of IMDb rating alone.\n",
+    "\n",
+    "## Dashboard KPIs\n",
+    "\n",
+    "Recommended KPIs for future dashboard development:\n",
+    "\n",
+    "- Total Swedish TV titles\n",
+    "- Average IMDb rating\n",
+    "- Total audience votes\n",
+    "- Number of successful titles\n",
+    "- Top successful titles\n",
+    "- Title count by release year\n",
+    "- Rating distribution\n",
+    "- Runtime category distribution\n",
+    "- Average rating by runtime category\n",
+    "- Sweden age-rating distribution\n",
+    "- Award winners vs nominations\n",
+    "- Missing values summary\n",
+    "\n",
+    "## Dataset Limitation\n",
+    "\n",
+    "The title-level analysis is directly Sweden-focused because the `fact_Title` table contains `Country Code = SE`.\n",
+    "\n",
+    "Some supporting tables do not have direct keys to connect them clearly to Swedish titles or series. Because of this, the analysis separates direct Sweden analysis from supporting dataset analysis."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "8843cd12-31d0-464d-8af6-5d550d4668d1",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.13.9"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
