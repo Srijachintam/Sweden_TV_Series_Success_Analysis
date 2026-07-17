@@ -91,5 +91,41 @@ Some supporting tables lack direct keys to clearly connect them to Swedish title
 ## Files in This Repository
 
 - `Sweden_TV_Series_Broadcaster_Analysis.ipynb` — Python analysis notebook
+
+## Tableau Dashboard
+
+I also created an interactive Tableau dashboard to support the business questions.
+
+The dashboard helps users explore Swedish TV title performance using:
+
+- Total Swedish TV titles
+- Titles with IMDb ratings
+- Average IMDb rating
+- Total audience votes
+- Average runtime
+- Successful title records
+- Release year trends
+- IMDb rating vs audience votes
+- Runtime category distribution
+- Successful vs not successful records
+- Top 10 successful Swedish TV records
+
+### Dashboard Preview
+
+![Dashboard Preview](dashboard_preview.png)
+
+### Tableau Dashboard File
+
+The Tableau packaged workbook is included in this repository:
+
+`Sweden_TV_Series_Tableau_Dashboard.twbx`
+
+### How to Use the Dashboard
+
+- Use the filters to explore IMDb rating, release year, success status, and runtime category.
+- Successful records are defined as IMDb rating ≥ 7.0 and votes ≥ median votes.
+- Use the scatter plot to compare audience rating and audience engagement.
+- Use the runtime charts to identify which content length performs better.
+- Use the top 10 chart to review examples of high-performing Swedish TV records.
 - `sweden_tv_dashboard_data.csv` — cleaned dashboard-ready data
 - `README.md` — project summary and business insights
