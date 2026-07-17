@@ -86,7 +86,7 @@ This rule helps avoid using only high ratings from titles with very few votes.
 
 The title-level analysis is directly Sweden-focused because the `fact_Title` table contains `Country Code = SE`.
 
-Some supporting tables lack direct keys to clearly connect them to Swedish titles or series. Because of this, the analysis separates the direct Sweden analysis from the supporting dataset analysis.
+Some supporting tables lack direct keys to connect them to Swedish titles or series clearly. Because of this, the analysis separates the direct Sweden analysis from the supporting dataset analysis.
 
 ## Files in This Repository
 
@@ -107,7 +107,7 @@ The dashboard helps users explore Swedish TV title performance using:
 - Release year trends
 - IMDb rating vs audience votes
 - Runtime category distribution
-- Successful vs not successful records
+- Successful vs. unsuccessful records
 - Top 10 successful Swedish TV records
 
 ### Dashboard Preview
@@ -129,3 +129,19 @@ The Tableau packaged workbook is included in this repository:
 - Use the top 10 chart to review examples of high-performing Swedish TV records.
 - `sweden_tv_dashboard_data.csv` — cleaned dashboard-ready data
 - `README.md` — project summary and business insights
+
+### Live Dashboard
+
+View the interactive Tableau dashboard here:  
+[Sweden TV Series Success Dashboard](https://public.tableau.com/app/profile/srija.chintam/vizzes)
+
+
+
+
+
+
+
+
+
+
+
